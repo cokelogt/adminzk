@@ -1,0 +1,62 @@
+<!doctype html>
+<html><head>
+    <meta charset="utf-8">
+    <title>BLOCKS - Bootstrap Dashboard Theme</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Carlos Alvarez - Alvarez.is">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap/css/bootstrap.min.css" />
+    <link href="assets/css/login.css" rel="stylesheet">
+    <link href="assets/plugins/toastr/toastr.css" rel="stylesheet">
+</head>
+
+  <body style="background-color:#3d3d3d">
+
+    <div class="container" style="margin-top: 12%">
+        <center><img src="img/sys/zkteco.png" alt="">
+        <br/>
+        <label style="color: #3c763d">Bienvenido a Control Presencial</label>
+        </center>
+        <div class="row">
+   		<div class="col-lg-offset-4 col-lg-4" >
+   			<div class="block-unit" style="text-align:center; padding:8px 8px 8px 8px;">
+   				<br/>
+					<form id="signupForm">
+						<fieldset>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 mx-auto">
+								<input class="form-control form-control-sm" id="username" name="name" type="text" placeholder="Username">
+								<input class="form-control form-control-sm" id="password" name="pass" type="password" placeholder="Password" onkeyup="if(event.keyCode == 13) {enterSys();}">
+                        </div>
+						</fieldset>
+					</form>
+                <button onclick="enterSys()" class="submit btn-success btn btn-large">Loguin</button>
+   			</div>
+   		</div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/toastr/toastr.min.js"></script>
+<script>
+        function enterSys() {
+                $.ajax({
+                    url: 'loguin.php',
+                    type: 'post',
+                    data: $('#signupForm').serialize(),
+                    success: function (data) {
+                        if (data == 1) {
+                            window.open('main.php', '_self', false)
+                        } else {
+                            toastr.error('El nombre de Usuario o Contraseña Son Incorrectos!!')
+                        }
+                    }
+                })
+            }
+    </script>
+
+
+  </body></html>
