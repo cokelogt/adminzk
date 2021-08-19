@@ -1,10 +1,10 @@
 <?php
         $connect = pg_connect("host='localhost' 
-                                               port=5433 
-                                               dbname='adminzk' 
-                                               user='postgres' 
-                                               password='datsun' 
-                                               options='--client_encoding=UTF8'");
+                               port=5432 
+                               dbname='db_name' 
+                               user='user' 
+                               password='pass' 
+                               options='--client_encoding=UTF8'");
     pg_query("SET NAMES 'utf8'");
     define('METHOD','AES-256-CBC');
     define('SECRET_KEY','myzkteco');
